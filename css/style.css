@@ -1,0 +1,1823 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set the viewport for mobile devices */
+meta[name="viewport"] {
+  content: "width=device-width, initial-scale=1.0";
+}
+
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-size: 62.5%;
+    font-size: 10px;
+    background-color: #1A1A19;
+}
+
+
+
+
+
+
+
+
+/* Home section */
+
+.home {
+    width: 100%;
+    height: 100vh;
+    background-image: url('Images/home-section1_image.jpg');
+    background-position: left center;  /* Start off-screen to the left */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: slideInFromLeft 2s ease-out forwards;  /* Slide-in animation */
+}
+
+/* Define the slide-in animation */
+@keyframes slideInFromLeft {
+    0% {
+        background-position: -100% center;  /* Background off-screen to the left */
+    }
+    100% {
+        background-position: center top;    /* Background ends at normal position */
+    }
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    transform: translateY(-100%); /* Start above the viewport */
+    transition: transform 1s ease; /* Smooth transition */
+    z-index: 2;
+    
+}
+
+.section_context1 {
+    margin-top: 100px;
+    max-width: 1000px;
+    padding: 100px;
+}
+
+.section_context1 h1 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    color: #fff;
+    margin-bottom: 10px;   /* Reduce bottom margin to bring it closer to h2 */
+}
+
+.section_context1 h2 {
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+    font-size: 100px;
+    margin-top: 0;         /* Remove top margin to eliminate extra space */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1), 
+    0 0 30px rgba(255, 255, 255, 0.1), 0 0 40px rgba(255, 255, 255, 0.006);
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(50px); /* Start below the original position */
+        opacity: 0;                  /* Start invisible */
+    }
+    100% {
+        transform: translateY(0);    /* End at the original position */
+        opacity: 1;                  /* End fully visible */
+    }
+}
+
+/* Apply the animation to headings */
+.section_context1 h1,
+.section_context1 h2 {
+    animation: slideUp 2s ease forwards; /* Apply animation */
+    opacity: 0;                            /* Initial state (invisible) */
+}
+
+/* Use a delay to trigger the animation */
+.section_context1 h1,
+.section_context1 h2 {
+    animation-delay: 0.5s; /* Delay the animation for a smooth appearance */
+    animation-fill-mode: forwards; /* Ensure the animation stays in the final state */
+}
+
+.section_context1 h1 {
+    margin-bottom: 10px; /* Reduce bottom margin to bring it closer to h2 */
+}
+
+.section_context1 h2 {
+    
+    margin-top: 0; /* Remove top margin to eliminate extra space */
+}
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+  justify-content: center; /* Center all items horizontally */
+  align-items: center; /* Center items vertically */
+  gap: 20px; /* Consistent spacing between form groups */
+  background: rgba(255, 255, 255, 0.05); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Blur effect for Safari */ 
+  padding: 20px;
+  border-radius: 30px; /* More rounded corners */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25); /* Glassmorphism shadow */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border for depth */
+  width: 100%;
+  max-width: 850px; /* Limit container width */
+  margin: 60px auto; /* Center container on the page */
+  height: auto; /* Remove fixed height for dynamic content */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column; /* Stack label and input vertically */
+  align-items: center; /* Center align elements */
+  flex: 1 1 150px; /* Flexible size, minimum width of 150px */
+  max-width: 200px; /* Prevent elements from stretching too wide */
+  text-align: center; /* Center text alignment */
+  gap: 8px; /* Space between label and input */
+}
+
+label {
+  font-size: 15px;
+  color: #ffffff;
+  margin-bottom: 5px; /* Ensure proper spacing */
+}
+
+input, select {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px 10px;
+  font-size: 14px;
+  width: 100%; /* Make input fill its container */
+  background-color: transparent;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #ff4081;
+  box-shadow: 0 0 4px rgba(255, 64, 129, 0.5);
+}
+
+.arrow {
+  all: unset; /* Resets all inherited styles */
+  display: inline-block; /* Behaves like a button */
+  cursor: pointer; /* Pointer cursor for interactivity */
+  color: white;
+  font-size: large;
+  text-align: center; /* Center arrow text */
+}
+
+.btn {
+  background: #00000000;
+  color: white;
+  border: none;
+  border-radius: 50%; /* Make it circular */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  outline: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border for depth */
+}
+
+.btn:hover {
+  background: #ffffff;
+  color: #1A1A19;
+}
+
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .form-container {
+      transform: scale(0.6); /* Scale down the entire form container */
+      transform-origin: top; /* Keep the top of the container anchored */
+      gap: 10px; /* Adjust the gap for smaller screens */
+  }
+
+  .form-group {
+      flex: 1 1 150px; /* Keep form groups at the same width */
+      max-width: 200px; /* Prevent them from growing too large */
+  }
+
+  .btn {
+      width: 35px; /* Make button slightly smaller */
+      height: 35px; /* Make button slightly smaller */
+  }
+
+  input, select {
+      font-size: 13px; /* Slightly reduce font size */
+      padding: 6px 8px; /* Adjust padding to fit better */
+  }
+
+  label {
+      font-size: 14px; /* Adjust label font size */
+  }
+}
+
+/* End Home section */
+
+
+/*About Section */
+
+.about {
+    position: relative;
+    width: 100%;
+    min-height: 125vh; /* Ensures full viewport height */
+    margin-bottom: 100px;
+    padding-bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.section_context2 {
+    position: relative;
+    text-align: center;
+    margin-top: 10%;
+    width: 100%; /* Optional: keeps content aligned */
+    padding: 20px; /* Adds some internal spacing */
+}
+
+
+.section_context2 h1 {
+    margin-bottom: 0; /* Keeps the space below h1 at 0 */
+    opacity: 0.8; /* Adjust this value to lower opacity (0.7 for 70% visibility) */
+    font-weight: 200;
+}
+
+.section_context2 h2 {
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal; 
+    font-size: 7rem;
+    margin-top: 0; /* Adjust this value to decrease space above h2 */
+}
+
+.about-text {
+    padding: calc(6*var(--spacing)) calc(6*var(--spacing));
+    background-color: var(--secondary);
+}
+
+.about-text h2{
+    padding: calc(2*var(--spacing)) 0;
+    font-size: 2.4rem;
+    color: var(--third);
+}
+
+.about-text p{
+    font-size: 1.3rem;
+    
+}
+
+.about-text img{
+    object-fit: contain;
+    display: inline-block;
+    width: calc(48*var(--spacing));
+    height: calc(44*var(--spacing));
+    /*position: absolute;*/
+}
+
+
+/* Avoid overlap with other sections */
+
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px; /* Adjust width as needed */
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .container2 .text {
+    width: 45%; /* Set the width for the text section */
+    padding: 20px;
+  }
+  
+  .container2 img {
+    width: 50%; /* Make the image take half the container width */
+    max-width: 500px; /* Limit the max width for larger screens */
+    height: auto;
+    object-fit: cover; /* Ensures the image maintains aspect ratio */
+    order: 1; /* Forces the image to appear after the text */
+  }
+  
+  .container2 h2 {
+    font-size: 35px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .container2 p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+  }
+
+
+
+
+  
+.cta {
+    position: relative;
+    margin: auto;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: "Bodoni Moda", serif;
+  }
+  
+  .cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50px;
+    background: #c8c8c8;
+    width: 45px;
+    height: 45px;   
+    transition: all 0.3s ease;
+  }
+  
+  .cta span {
+    position: relative;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #2f2f2fe1;
+  }
+  
+  .cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #666;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+  }
+  
+  .cta:hover:before {
+    width: 100%;
+    background: #b6b6b6;
+  }
+  
+  .cta:hover svg {
+    transform: translateX(0);
+  }
+  
+  .cta:active {
+    transform: scale(0.95);
+  }
+/*End About Section */
+
+/*Services Section */
+
+.services {
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-height: 70vh; /* Ensures full viewport height */
+  justify-content: center;
+  align-items: center;
+  background-color: #1A1A19;
+}
+
+.services h1 {
+  margin-bottom: 0; /* Keeps the space below h1 at 0 */
+  opacity: 0.8; /* Adjust this value to lower opacity (0.7 for 70% visibility) */
+  font-weight: 200;
+  color: #ffffff;
+}
+
+.services h2 {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: white;
+  font-style: normal; 
+  font-size: 7rem;
+  margin-top: 0; /* Adjust this value to decrease space above h2 */
+}
+
+.services-items {
+  padding-top: 3%;
+  padding-bottom: 5%;
+}
+
+.amenities {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.amenity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  width: 150px;
+  transition: transform 0.3s ease;
+}
+
+.amenity:hover {
+  transform: translateY(-5px);
+}
+
+.amenity i {
+  font-size: 5em;
+  color: #ffffff; /* Adjust color as needed */
+  margin-bottom: 10px;
+}
+
+.amenity span {
+  padding-top: 10px;
+  font-size: 1.3em;
+  color: #ffffff;
+}
+
+/*End Services Section */
+
+/*place Section */
+
+.place {
+  text-align: center;
+  width: 100%;
+  min-height: 210vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.place-heads h1 {
+  margin-bottom: 0;
+  opacity: 0.8;
+  font-weight: 200;
+}
+
+.place-heads h2 {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 7rem;
+  margin-top: 0;
+}
+
+
+.right-content h2 {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4rem;
+  margin-top: 10%;
+}
+
+.right-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.content-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px; /* Adjusts space between headings and images */
+}
+
+.place-image {
+  width: 600px; /* Adjust as needed for image size */
+  height: auto;
+}
+
+.vertical-line {
+  width: 1px;
+  height: 900px;
+  background-color: #1A1A19;
+  margin: 0 70px; /* Space between the images */
+}
+
+
+.cta_exploremore {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.cta_exploremore span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.cta_exploremore svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta_exploremore:hover svg {
+  transform: translateX(0);
+}
+
+.cta_exploremore:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: black;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta_exploremore:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/*end place Section */
+
+
+/*room Section */
+
+.rooms {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Use min-height instead of height */
+  background-color: #ffffff;
+  padding-bottom: 20px;
+
+}
+
+
+.text-slider-wrapper h1 {
+  margin-bottom: 0; /* Keeps the space below h1 at 0 */
+  opacity: 0.8; /* Adjust this value to lower opacity (0.7 for 70% visibility) */
+  font-weight: 200;
+  color: white;
+  margin-left: 10%;
+}
+
+.text-slider-wrapper  h2 {
+  font-family: "Bodoni Moda", serif;
+  color: white;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 7rem;
+  margin-top: 0; /* Adjust this value to decrease space above h2 */
+  margin-left: 10%;
+}
+.image-slider {
+  z-index: 0;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+}
+.image-slider .slick-slide {
+  transition: filter 0.5s ease; /* Smooth transition for filter effect */
+}
+
+.image-slider .slick-prev {
+  filter: brightness(0.6); /* Darken previous image */
+}
+
+.image-slider .slick-active .image-slide {
+  filter: brightness(1); /* Ensure active slide is bright */
+}
+
+.image-slider .slick-slide:not(.slick-active) {
+  filter: brightness(0.6); /* Darken non-active images */
+}
+
+.image-slider .slick-prev ~ .slick-slide {
+  filter: brightness(0.4); /* Apply extra darkening to the previous image */
+}
+
+
+
+.image-slide {
+  height: 100vh;
+  margin: 0 auto;
+  
+}
+
+.slick-slide.slick-center {
+  transform: scale(1.2);
+  transition: transform .8s 1.4s cubic-bezier(.84, 0, .08, .99);
+}
+
+.slick-slide {
+  transition: transform .7s cubic-bezier(.84, 0, .08, .99);
+}
+
+.slider-control {
+  margin: 0%;
+  position: absolute;
+  z-index: 2;
+  bottom: 4%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+
+button {
+  color: #fff;
+  background: none;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, .3);
+  font-size: 16px;
+  border-radius: 50%;
+  margin: .4em;
+  display: inline-block;
+}
+
+button:focus {
+  outline: none;
+}
+
+.block-1 {
+  z-index: 1;
+  position: fixed;
+  height: 100vh;
+  width: 5%;
+  left: 0%;
+  background: #0f0f0f;
+}
+
+.block-2 {
+  z-index: 1;
+  position: fixed;
+  height: 100vh;
+  width: 25%;
+  left: 25%;
+  background: #0f0f0f;
+}
+
+.block-3 {
+  z-index: 1;
+  position: fixed;
+  height: 100vh;
+  width: 5%;
+  right: 0%;
+  background: #0f0f0f;
+}
+
+.overlay {
+  z-index: 1;
+  position: fixed;
+  height: 100vh;
+  width: 20%;
+  left: 5%;
+  background: rgba(0, 0, 0, .65);
+}
+
+.text-slider-wrapper {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  top: 30%;
+}
+
+.text-slider {
+  margin: 0%;
+  padding: 0%;
+  height: 100vh;
+}
+
+.text-slide h1 {
+  color: #fff;
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 110%;
+  padding-left: 10%;
+  font-size: 2.8rem;
+  margin-bottom: 30%;
+}
+/*End room Section */
+
+/*Restaurant Section */
+
+.restaurant {
+  text-align: center;
+  width: 100%;
+  min-height: 250vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.restaurant h1 {
+  margin-bottom: 0;
+  opacity: 0.8;
+  font-weight: 200;
+}
+
+.restaurant h2 {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 7rem;
+  margin-top: 0;
+}
+
+
+
+.left-content h2 {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4rem;
+  margin-top: 10%;
+}
+
+.left-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.content-container2 {
+  display: flex;
+  align-items: center;
+  margin-top: 20px; /* Adjusts space between headings and images */
+}
+
+.place-image_left-image1 {
+  width: 600px; /* Adjust as needed for image size */
+  height: auto;
+}
+
+.image-container_right {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the images horizontally */
+  gap: 60px;
+}   
+
+.place-image_left-image2 {
+  width: 600px; /* Adjust as needed for image size */
+  height: auto;
+}
+
+.place-image_left-image3 {
+  width: 600px; /* Adjust as needed for image size */
+  height: auto;
+}
+
+
+
+
+
+.vertical-line2 {
+  width: 1px;
+  height: 1300px;
+  background-color: #1A1A19;
+  margin: 0 70px; /* Space between the images */
+}
+
+
+/*End Restaurant Section */
+
+/*Testimonials Section */
+.testimonials {
+  display: flex;
+  flex-direction: column; /* Ensures content stacks vertically */
+  align-items: center; /* Centers the content horizontally */
+  justify-content: center; /* Centers the content vertically */
+  width: 100%;
+  min-height: 180vh;
+  background-color: #1A1A19;
+  position: relative;
+}
+
+.testimonials h1, .testimonials h2 {
+  text-align: center;
+  margin: 0;
+}
+
+.testimonials h1 {
+  margin-bottom: 10px;
+  opacity: 0.8;
+  font-weight: 200;
+  color: #ffffff;
+}
+
+.testimonials h2 {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: white;
+  font-size: 7rem;
+  opacity: 0.8;
+}
+
+.testimonials-heads {
+  margin-bottom: 10%;
+}
+
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between images */
+  width: 100%; 
+  margin-top: 20px;
+  position: relative;
+}
+
+.image-container img {
+  width: 100px;
+  height: auto;
+  opacity: 0.5; /* Slightly fade out non-main images */
+  filter: blur(5px); /* Add blur to non-main images */
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+  border-radius: 8px;
+}
+
+.image-container img.center {
+  width: 200px;
+  opacity: 1; /* Fully visible */
+  filter: blur(0); /* Remove blur for center image */
+  transform: scale(1.2); /* Slightly scale up the main image */
+}
+
+.arrow-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  padding: 15px;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  backdrop-filter: blur(10px);
+  transition: background 0.3s, transform 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.left {
+  left: 30px;
+}
+
+.right {
+  right: 30px;
+}
+
+.testimonies {
+  display: flex;
+  flex-direction: column; /* Arrange elements vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Ensure text is centered */
+ 
+}
+
+.testimonies p {
+  margin-bottom: 10px; /* Adjusted space between paragraphs */
+  opacity: 0.8;
+  font-weight: 200;
+  color: #ffffff;
+  font-size: large;
+  margin-top: 50px; /* Fixed the typo '5ss0px' to '50px' */
+}
+
+.testimonies h3 {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: white;
+  font-size: 7rem;
+  opacity: 0.8;
+  margin-top: 100px; /* Adjusted to create more space before the heading */
+  margin-bottom: 20px; /* Space after the heading */
+}
+
+
+
+.stars {
+  font-size: 2rem;
+  color: rgb(255, 157, 0);
+  margin-top: 50px; /* Negative margin to move the stars closer to p */
+}
+
+/*End Testimonials Section */
+
+
+
+/*Follow Us Section */
+.followus {
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-height: 70vh; /* Ensures full viewport height */
+  justify-content: center;
+  align-items: center;
+  background-color: #1A1A19;
+}
+
+.followus h1 {
+  margin-bottom: 0; /* Keeps the space below h1 at 0 */
+  opacity: 0.8; /* Adjust this value to lower opacity (0.7 for 70% visibility) */
+  font-weight: 200;
+  color: #ffffff;
+}
+
+.followus h2 {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: white;
+  font-style: normal; 
+  font-size: 7rem;
+  margin-top: 0; /* Adjust this value to decrease space above h2 */
+}
+
+.followus-images {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Spacing between images */
+}
+
+.zigzag-img {
+  padding-top: 50px;
+  height: 300px; /* Fixed height to maintain aspect ratio */
+  object-fit: cover; /* Prevents stretching and keeps images looking natural */
+  
+}
+
+.img1 {
+  width: 240px;
+  margin-top: 0; /* No offset */
+}
+
+.img2 {
+  width: 260px;
+  margin-top: 30px; /* Lowered */
+}
+
+.img3 {
+  width: 200px;
+  margin-top: -20px; /* Raised */
+}
+
+.img4 {
+  width: 240px;
+  margin-top: 40px; /* Lowered */
+}
+
+.img5 {
+  width: 230px;
+  margin-top: -10px; /* Slightly raised */
+}
+
+.footer-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  justify-content: center; /* Centers content horizontally */
+  padding: 20px 0;
+  text-align: left;
+}
+
+.footer-column {
+  width: 22%;
+
+}
+
+.footer-column h3 {
+  font-weight: 400;
+  font-family: "Bodoni Moda", serif;
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: white;
+  
+}
+
+.footer-column p, .footer-column ul, .footer-column form {
+  font-size: 1.3em;
+  line-height: 1.6;
+  color: white;
+  
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 5px;
+}
+
+.footer-column.newsletter form {
+  display: flex;
+  align-items: center;
+}
+
+.footer-column.newsletter input[type="email"] {
+  padding: 5px;
+  font-size: 0.9em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 70%;
+  margin-right: 5px;
+}
+
+.footer-column.newsletter button {
+  font-size: 1.2em;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.feedback-input {
+  color:white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 10px;
+  border-radius: 10px;
+  line-height: 22px;
+  background-color: transparent;
+  border:1px solid #ffffff;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:50%;
+  box-sizing: border-box;
+  outline:0;
+}
+
+.feedback-input:focus { border:2px solid #ffffff; }
+
+textarea {
+  height: 150px;
+  line-height: 150%;
+  resize:vertical;
+}
+
+[type="submit"] {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  width: 50%;
+  background:#CC6666;
+  border-radius:5px;
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+}
+/*End Follow Us Section */
+
+
+/*Footer Section */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #1A1A19;
+  color: white;
+  margin-left: 50px; /* adjust as needed */
+  margin-right: 50px; /* adjust as needed */
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-top: 1px solid #ffffff; /* add a top border */
+  height: auto; /* Ensures footer has height to contain content */
+}
+
+.footer-left, .footer-right {
+  display: flex;
+  align-items: center; /* Centers content vertically */
+}
+
+.footer-middle {
+  display: flex;
+  justify-content: center; /* centers the content horizontally */
+  align-items: center; /* centers the content vertically */
+  flex: 1; /* ensures it takes up remaining space */
+  margin-right: 90px;
+}
+
+.footer-middle img {
+  width: 150px; /* adjust size as needed */
+  flex-shrink: 0; /* prevents the image from shrinking */
+  
+}
+
+.footer-left p {
+  margin: 0;
+  font-size: 1em;
+}
+
+.footer-right a {
+  margin: 0 10px;
+  font-size: 20px; /* adjust icon size */
+  color: white;
+  text-decoration: none;
+}
+
+.footer-content {
+  margin-top: 20px;
+}
+
+/*End Footer Section */
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Media qurey section */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .navTrigger {
+        display: block;
+    }
+    .nav div.logo {
+        margin-left: 15px;
+    }
+    .nav div.main_list-left a,
+    .nav div.main_list-right a {
+        display: none;
+    }
+    .nav__logo-image {
+      max-width: 50px; /* Adjust to your desired size */
+      width: 100%; /* Ensures the logo is responsive */
+    }
+      
+    .nav__menu {
+      display: flex;
+      align-items: center;
+      column-gap: 3.5rem;
+      
+    }
+    .nav div.media_button {
+        display: block;
+    }
+
+    .section_context1 h1 {
+       margin-top: 50%;
+        font-optical-sizing: auto;
+        opacity: 0.8; /* Adjust this value to lower opacity (0.7 for 70% visibility) */
+        font-weight: 200;
+        color: #fff;
+        margin-bottom: 10px;   /* Reduce bottom margin to bring it closer to h2 */
+    }
+    
+    .section_context1 h2 {
+        font-family: "Bodoni Moda", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        color: #fff;
+        font-size: 50px;
+        margin-top: 0;         /* Remove top margin to eliminate extra space */
+    }
+
+    .animated-button {
+        position: absolute; /* Keep the logo absolutely positioned */
+        top: 80%;          /* Position it halfway down the container */
+        left: 50%;         /* Position it halfway across the container */
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 16px 36px;
+        border: 2px solid;
+        border-color: transparent;
+        font-size: 16px;
+        background-color: inherit;
+        border-radius: 100px;
+        font-weight: 600;
+        color: white;
+        box-shadow: 0 0 0 2px white;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    
+    
+    .container2 {
+        flex-direction: column;
+        text-align: center;
+      }
+    
+      .container2 img {
+        width: 100%;
+        margin-top: 20px;
+        order: 2; /* Keeps the image below the text on small screens */
+      }
+    
+      .container2 .text {
+        width: 100%;
+      }
+
+    .section_context2 h1 {
+        margin-bottom: 0; /* Keeps the space below h1 at 0 */
+        opacity: 0.8; /* Adjust this value to lower opacity (0.7 for 70% visibility) */
+        font-weight: 200;
+    }
+    
+    .section_context2 h2 {
+        font-family: "Bodoni Moda", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal; 
+        font-size: 3rem;
+        margin-top: 0; /* Adjust this value to decrease space above h2 */
+    }
+
+
+
+  .services h1 {
+      margin-bottom: 0; /* Keeps the space below h1 at 0 */
+      opacity: 0.8; /* Adjust this value to lower opacity (0.7 for 70% visibility) */
+      font-weight: 200;
+  }
+  
+  .services h2 {
+      font-family: "Bodoni Moda", serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal; 
+      font-size: 3rem;
+      margin-top: 0; /* Adjust this value to decrease space above h2 */
+  }
+
+   
+    .text h2 {
+        font-size: 2.5rem;
+    }
+
+    .container2 p {
+        font-size: 11px;
+        line-height: 1.6;
+        color: #666;
+      }
+      
+
+
+.place {
+  font-optical-sizing: auto;
+  min-height: auto; /* Remove 210vh min-height for smaller screens */
+  
+}
+.place-heads{
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      margin-top: 10%;
+      margin-bottom: 10%;
+}
+/* Adjusting the font size for headers */
+.place-heads h1 {
+  margin-bottom: 0; /* Keeps the space below h1 at 0 */
+  opacity: 0.8; /* Adjust this value to lower opacity (0.7 for 70% visibility) */
+  font-weight: 200;
+}
+
+.place-heads h2 {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 3rem;
+  margin-top: 0; /* Adjust this value to decrease space above h2 */
+}
+
+.right-content h2 {
+  font-size: 3rem; /* Adjust font size for mobile */
+  margin-top: 5%; /* Reduce the margin-top for mobile */
+}
+
+.right-content p {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Adjusting .content-container for mobile layout */
+.content-container {
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center-align items */
+}
+
+.place-image {
+  width: 70%;
+  margin-top: 20px;
+}
+
+/* Adjusting .vertical-line for mobile layout */
+.vertical-line {
+  display: none; /* Hide the vertical line on small screens */
+}
+
+/* Adjusting button styles for mobile */
+.cta_exploremore span {
+  font-size: 12px; /* Smaller font size */
+  letter-spacing: 2px; /* Reduced spacing */
+}
+
+.cta_exploremore svg {
+  transform: translateX(0); /* Remove translate for mobile */
+  width: 16px; /* Smaller icon */
+  height: auto;
+}
+
+/* Hover underline animation adjustments */
+.hover-underline-animation {
+  padding-bottom: 50px; /* Reduce padding for mobile */
+}
+
+.cta_exploremore:hover .hover-underline-animation:after {
+  height: 1px; /* Thinner underline */
+}
+
+
+.restaurant {
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  
+  margin-bottom: 10%;
+}
+
+/* Adjusting the font size for headers */
+.restaurant h1 {
+  margin-bottom: 0; /* Keeps the space below h1 at 0 */
+  opacity: 0.8; /* Adjust this value to lower opacity (0.7 for 70% visibility) */
+  font-weight: 200;
+}
+
+.restaurant h2 {
+      font-family: "Bodoni Moda", serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal; 
+      font-size: 3rem;
+      margin-top: 0; /* Adjust this value to decrease space above h2 */
+}
+
+.left-content h2 {
+  font-size: 3rem; /* Adjust font size for mobile */
+  margin-top: 5%; /* Reduce the margin-top for mobile */
+}
+
+.left-content p {
+  font-size: 14px; /* Smaller text for readability */
+}
+
+/* Adjusting .content-container2 for mobile layout */
+.content-container2 {
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center-align items */
+}
+
+.place-image2_right-image,
+.place-image3_right-image,
+.place-image1_left-image {
+  width: 70%;
+  margin-top: 20px;
+}
+
+.image-container_right {
+  gap: 20px; /* Reduce spacing between images */
+}
+
+/* Adjusting .vertical-line2 for mobile layout */
+.vertical-line2 {
+  display: none; /* Hide the vertical line on small screens */
+}
+
+
+/* Base Testimonials Section */
+.testimonials {
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  width: 100%;
+  min-height: 120vh;
+  background-color: #1A1A19;
+  position: relative;
+}
+
+.testimonials__header {
+  text-align: center;
+  margin-bottom: 10%;
+}
+
+.testimonials-heads h1 {
+  margin-bottom: 0; /* Keeps the space below h1 at 0 */
+  opacity: 0.8; /* Adjust this value to lower opacity (0.7 for 70% visibility) */
+  font-weight: 200;
+}
+
+.testimonials-heads h2 {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 3rem;
+  margin-top: 0; /* Adjust this value to decrease space above h2 */
+  
+}
+
+/* Image Carousel */
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between images */
+  width: 100%; 
+  margin-top: 20px;
+  position: relative;
+}
+
+.image-container img {
+  width: 50px;
+  height: auto;
+  opacity: 0.5; /* Slightly fade out non-main images */
+  filter: blur(5px); /* Add blur to non-main images */
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+  border-radius: 8px;
+}
+
+.image-container img.center {
+  width: 100px;
+  opacity: 1; /* Fully visible */
+  filter: blur(0); /* Remove blur for center image */
+  transform: scale(1.2); /* Slightly scale up the main image */
+}
+
+/* Navigation Buttons */
+.arrow-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  padding: 15px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  backdrop-filter: blur(10px);
+  transition: background 0.3s, transform 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.arrow-button--left {
+  left: 30px;
+}
+
+.arrow-button--right {
+  right: 30px;
+}
+
+/* Individual Testimonies */
+.testimonies {
+  display: flex;
+  flex-direction: column; /* Arrange elements vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Ensure text is centered */
+ 
+}
+
+.testimonies p {
+  margin-bottom: 20px;
+  opacity: 0.8;
+  font-weight: 200;
+  color: #ffffff;
+  font-size: small;
+  margin-top: 50px;
+}
+
+.testimonies h3 {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: white;
+  font-size: 6rem;
+  opacity: 0.8;
+}
+
+.testimonies__stars {
+  font-size: 2rem;
+  color: rgb(255, 157, 0);
+  margin-top: -50px; /* Adjust spacing near the text */
+}
+
+
+
+
+/*follous*/
+.followus {
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-height: 70vh; /* Ensures full viewport height */
+  justify-content: center;
+  align-items: center;
+  background-color: #1A1A19;
+}
+
+.followus h1 {
+  margin-bottom: 0; /* Keeps the space below h1 at 0 */
+  opacity: 0.8; /* Adjust this value to lower opacity (0.7 for 70% visibility) */
+  font-weight: 200;
+}
+
+.followus h2 {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 4rem;
+  margin-top: 0; /* Adjust this value to decrease space above h2 */
+}
+
+.followus-images {
+  display: flex;
+  justify-content: center;
+  gap: 5px; /* Spacing between images */
+}
+
+.zigzag-img {
+  padding-top: 50px;
+  height: 100px; /* Fixed height to maintain aspect ratio */
+  object-fit: cover; /* Prevents stretching and keeps images looking natural */
+  
+}
+
+.img1 {
+  width: 80px;
+  margin-top: 0; /* No offset */
+}
+
+.img2 {
+  width: 86px;
+  margin-top: 30px; /* Lowered */
+}
+
+.img3 {
+  width: 66px;
+  margin-top: -20px; /* Raised */
+}
+
+.img4 {
+  width: 80px;
+  margin-top: 40px; /* Lowered */
+}
+
+.img5 {
+  width: 76px;
+  margin-top: -10px; /* Slightly raised */
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  justify-content: center;
+  padding: 20px 10px; /* Reduces padding for smaller screens */
+  text-align: center; /* Center-aligns content for better readability */
+}
+
+.footer-column {
+  width: 100%; /* Takes full width on small screens */
+  margin-bottom: 20px; /* Adds spacing between columns */
+}
+
+.footer-column h3 {
+  font-size: 2em; /* Reduces font size for smaller screens */
+  margin-bottom: 15px;
+}
+
+.footer-column p,
+.footer-column ul,
+.footer-column form {
+  font-size: 1.3em; /* Adjusts text size for readability on smaller screens */
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column.newsletter input[type="email"] {
+  width: 100%; /* Full width for email input */
+  margin-bottom: 10px; /* Adds spacing below input */
+}
+
+.footer-column.newsletter button {
+  width: 100%; /* Full width for the button */
+  font-size: 1em; /* Adjusts font size */
+}
+
+.email_inputbox{
+  align-items: center;
+}
+.feedback-input {
+  color:white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 10px;
+  border-radius: 10px;
+  line-height: 22px;
+  background-color: transparent;
+  border:1px solid #ffffff;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:100%;
+  box-sizing: border-box;
+  outline:0;
+  margin-left: 20%;
+}
+
+.feedback-input:focus { border:2px solid #ffffff; }
+
+textarea {
+  height: 150px;
+  line-height: 150%;
+  resize:vertical;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #1A1A19;
+  color: white;
+  margin-left: 50px; /* adjust as needed */
+  margin-right: 50px; /* adjust as needed */
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-top: 1px solid #ffffff; /* add a top border */
+  height: auto; /* Ensures footer has height to contain content */
+}
+
+.footer-left, .footer-right {
+  display: flex;
+  align-items: center; /* Centers content vertically */
+  margin-bottom: 30px;
+}
+
+.footer-middle {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center; /* centers the content horizontally */
+  align-items: center; /* centers the content vertically */
+  flex: 1; /* ensures it takes up remaining space */
+ margin-left: 90px;
+}
+
+.footer-middle img {
+  width: 150px; /* adjust size as needed */
+  flex-shrink: 0; /* prevents the image from shrinking */
+  
+}
+
+.footer-left p {
+  margin: 0;
+  font-size: 1em;
+}
+
+.footer-right a {
+  margin: 0 10px;
+  font-size: 20px; /* adjust icon size */
+  color: white;
+  text-decoration: none;
+}
+
+.footer-content {
+  margin-top: 20px;
+}
+
+
+}
